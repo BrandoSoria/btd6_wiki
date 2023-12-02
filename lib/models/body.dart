@@ -43,7 +43,7 @@ class Body {
         maxMonkeysOnBoat: json["maxMonkeysOnBoat"],
         maxPowerSlots: json["maxPowerSlots"],
         startingHealth: json["startingHealth"],
-        rewards: List<String>.from(json["_rewards"].map((x) => x)),
+        rewards: List<String>.from(json["_rewards"]),
         availablePowers: List<AvailablePower>.from(json["_availablePowers"].map((x) => AvailablePower.fromJson(x))),
         availableTowers: List<AvailableTower>.from(json["_availableTowers"].map((x) => AvailableTower.fromJson(x))),
         defaultPowers: List<DefaultOwer>.from(json["_defaultPowers"].map((x) => DefaultOwer.fromJson(x))),
