@@ -30,7 +30,7 @@ class Btd6Provider extends ChangeNotifier {
     //print(response.body);
     final techResponse = Odysseybt6Response.fromRawJson(response.body);
     //aquiqeude
-    newsList = techResponse.;
+    newsList = techResponse.resultsPower;
     //Le comunicamos a todos los widgets que estan escuchando que se cambio la data por lo tanto se tienen que redibujar
     notifyListeners();
     //print(techResponse.results[0].title);

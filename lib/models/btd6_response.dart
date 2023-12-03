@@ -4,20 +4,22 @@ import 'package:configuracion_loggin/models/models.dart';
 
 
 class Odysseybt6Response {
-    dynamic error;
-    bool success;
-    Body body;
-    Model model;
-    dynamic next;
-    dynamic prev;
+    // dynamic error;
+    // bool success;
+    // Body body;
+    // Model model;
+    // dynamic next;
+    // dynamic prev;
+    List<AvailablePower> resultsPower;
 
     Odysseybt6Response({
-        required this.error,
-        required this.success,
-        required this.body,
-        required this.model,
-        required this.next,
-        required this.prev,
+        // required this.error,
+        // required this.success,
+        // required this.body,
+        // required this.model,
+        // required this.next,
+        // required this.prev,
+        required this.resultsPower
     });
 
     factory Odysseybt6Response.fromRawJson(String str) => Odysseybt6Response.fromJson(json.decode(str));
@@ -25,12 +27,14 @@ class Odysseybt6Response {
     // String toRawJson() => json.encode(toJson());
 
     factory Odysseybt6Response.fromJson(Map<String, dynamic> json) => Odysseybt6Response(
-        error: json["error"],
-        success: json["success"],
-        body: Body.fromJson(json["body"]),
-        model: Model.fromJson(json["model"]),
-        next: json["next"],
-        prev: json["prev"],
+        // error: json["error"],
+        // success: json["success"],
+        // body: Body.fromJson(json["body"]),
+        // model: Model.fromJson(json["model"]),
+        // next: json["next"],
+        // prev: json["prev"],
+        
+        resultsPower: List<AvailablePower>.from(json["data"].map((x) => AvailablePower.fromJson(x))),
     );
 
     // Map<String, dynamic> toJson() => {
