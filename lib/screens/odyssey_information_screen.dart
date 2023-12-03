@@ -51,25 +51,40 @@ class OdysseyDetails extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('ID: ${odyssey.id ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
-                Text('Extreme Mode: ${odyssey.isExtreme ?? false}',
-                
+                Text(
+                    'indicador de vidas inicial: ${odyssey.startingHealth ?? "N/A"}',
+                    style: TextStyle(fontSize: 18.0)),
+                Text('premios: ${odyssey.rewards ?? "N/A"}',
+                    style: TextStyle(fontSize: 18.0)),
+
+                // Text(
+                //     'mapas: ${odyssey.maps ?? "N/A"}',
+                //     style: TextStyle(fontSize: 18.0)),
+
+                Text('ID: ${odyssey.id ?? "N/A"}',
+                    style: TextStyle(fontSize: 18.0)),
+                Text('Extremo S/N: ${odyssey.isExtreme ?? false}',
                     style: TextStyle(fontSize: 18.0)),
                 // Otros detalles con el operador de nulabilidad (?)
                 // Ejemplo:
-                 Text('Max Monkey Seats: ${odyssey.maxMonkeySeats ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
-                 Text('Max Monkeys On Boat: ${odyssey.maxMonkeysOnBoat ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
+                Text(
+                    'asientos maximo por cada mono : ${odyssey.maxMonkeySeats ?? "N/A"}',
+                    style: TextStyle(fontSize: 18.0)),
+                Text(
+                    'maximo de monos en el barco: ${odyssey.maxMonkeysOnBoat ?? "N/A"}',
+                    style: TextStyle(fontSize: 18.0)),
                 // ...
-            Text('AvailablePowers: ${odyssey.availablePowers ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
-             Text('AvailableTowers: ${odyssey.availableTowers ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
-             
-
+                Text(
+                    'Poderes disponibles y cantidad: ${odyssey.availablePowers ?? "N/A"}',
+                    style: TextStyle(fontSize: 18.0)),
+                Text(
+                    'torres disponibles, heroes, mejoras y cantidad: ${odyssey.availableTowers ?? "N/A"}',
+                    style: TextStyle(fontSize: 18.0)),
 
                 // Agrega más detalles según sea necesario
               ],
             ),
-          if (odyssey == null)
-            Text('No se encontraron datos de la odisea.'),
+          if (odyssey == null) Text('No se encontraron datos de la odisea.'),
         ],
       ),
     );
