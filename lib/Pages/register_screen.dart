@@ -12,16 +12,21 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
         body: Container(
             child: SingleChildScrollView(
-              
       child: Column(
-    
         children: [
-          SizedBox(height: 250),
+          SizedBox(height: 50), // Espacio adicional antes de la imagen
+          Image.asset(
+            'assets/ninja_kiwi.png', // Cambia 'tu_imagen.png' al nombre de tu imagen
+            height: 100, // Ajusta la altura según tus necesidades
+            width: 100, // Ajusta el ancho según tus necesidades
+          ),
+          SizedBox(height: 10),
+          const SizedBox(height: 50),
+          SizedBox(height: 20),
           CardContainer(
               child: Column(
             children: [
               SizedBox(height: 10),
-              
               Text('Crear cuenta',
                   style: Theme.of(context).textTheme.headlineMedium),
               SizedBox(height: 30),
@@ -38,7 +43,9 @@ class SignUpScreen extends StatelessWidget {
                   shape: MaterialStateProperty.all(StadiumBorder())),
               child: Text(
                 '¿Ya tienes una cuenta?',
-                style: TextStyle(fontSize: 18, color: Colors.amber),
+                style: TextStyle(
+                    fontSize: 18,
+                    color: const Color.fromARGB(255, 255, 255, 255)),
               )),
           SizedBox(height: 50),
         ],
@@ -94,13 +101,12 @@ class _LoginForm extends StatelessWidget {
             ),
             SizedBox(height: 30),
             MaterialButton(
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.zero),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                 disabledColor: const Color.fromARGB(255, 12, 86, 147),
                 elevation: 0,
-                color: Colors.grey,
+                color: const Color.fromARGB(255, 215, 40, 40),
                 child: Container(
-                    padding: EdgeInsets.symmetric(),
+                    padding: EdgeInsets.all(33),
                     child: Text(
                       loginForm.isLoading ? 'Espere' : 'Ingresar',
                       style: TextStyle(color: Colors.white),

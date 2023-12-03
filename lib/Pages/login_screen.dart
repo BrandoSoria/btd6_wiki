@@ -11,12 +11,19 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         //body: AuthBackground(
-          //SingleChildScrollView para pantalla desplazable por informacion larga
+        //SingleChildScrollView para pantalla desplazable por informacion larga
         body: Container(
             child: SingleChildScrollView(
       child: Column(
         children: [
-          const SizedBox(height: 250),
+          SizedBox(height: 50), // Espacio adicional antes de la imagen
+          Image.asset(
+            'assets/ninja_kiwi.png', // Cambia 'tu_imagen.png' al nombre de tu imagen
+            height: 100, // Ajusta la altura según tus necesidades
+            width: 100, // Ajusta el ancho según tus necesidades
+          ),
+          SizedBox(height: 10),
+          const SizedBox(height: 50),
           CardContainer(
               child: Column(
             children: [
@@ -37,7 +44,8 @@ class LoginScreen extends StatelessWidget {
                   shape: MaterialStateProperty.all(StadiumBorder())),
               child: const Text(
                 'Crear una nueva cuenta',
-                style: TextStyle(fontSize: 18, color: Color.fromARGB(255, 41, 46, 44)),
+                style: TextStyle(
+                    fontSize: 18, color: Color.fromARGB(255, 253, 253, 253)),
               )),
           const SizedBox(height: 50),
         ],
@@ -61,9 +69,8 @@ class _LoginForm extends StatelessWidget {
               autocorrect: false,
               keyboardType: TextInputType.emailAddress,
               decoration: InputDecorations.authInputDecoration(
-              
-                  hintText: 'Ingresa Tu Correo Aqui',
-                  labelText: 'Correo electrónico',
+                hintText: 'Ingresa Tu Correo Aqui',
+                labelText: 'Correo electrónico',
               ),
               onChanged: (value) => loginForm.email = value,
               validator: (value) {
@@ -76,38 +83,34 @@ class _LoginForm extends StatelessWidget {
                     : 'El valor ingresado no luce como un correo';
               },
             ),
-           
             TextFormField(
               autocorrect: false,
               obscureText: true,
               keyboardType: TextInputType.emailAddress,
-              
               decoration: InputDecorations.authInputDecoration(
                   hintText: '*****',
                   labelText: 'Contraseña',
-                
                   prefixIcon: Icons.lock_outline),
-                  
               onChanged: (value) => loginForm.password = value,
               validator: (value) {
                 return (value != null && value.length >= 6)
                     ? null
                     : 'La contraseña debe de ser de 6 caracteres';
-                    
               },
             ),
             const SizedBox(height: 10),
             MaterialButton(
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical()),
-                disabledColor: const Color.fromARGB(255, 13, 6, 6),
+                disabledColor: Color.fromARGB(255, 255, 255, 255),
                 elevation: 0,
-                color: const Color.fromARGB(215, 219, 221, 252),
+                color: Color.fromARGB(211, 216, 33, 49),
                 child: Container(
-                    padding: EdgeInsets.zero,
+                    padding: EdgeInsets.all(33),
                     child: Text(
                       loginForm.isLoading ? 'Espere' : 'Ingresar',
-                      style: TextStyle(color: Colors.black),
+                      style: TextStyle(
+                          color: const Color.fromARGB(255, 255, 255, 255)),
                     )),
                 onPressed: loginForm.isLoading
                     ? null

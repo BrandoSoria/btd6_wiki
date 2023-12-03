@@ -9,15 +9,13 @@ class InputDecorations {
     return InputDecoration(
       enabledBorder: const UnderlineInputBorder(
         borderSide: BorderSide(
-          color: Color.fromARGB(255, 15, 2, 2),
+          color: Color.fromARGB(255, 255, 253, 253),
         ),
       ),
-     
-      
       hintText: hintText,
       labelText: labelText,
       labelStyle: const TextStyle(
-        color: Color.fromARGB(255, 7, 11, 13),
+        color: Color.fromARGB(255, 254, 254, 254),
       ),
     );
   }
