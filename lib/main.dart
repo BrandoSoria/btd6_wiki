@@ -1,6 +1,7 @@
 import 'package:configuracion_loggin/Pages/pages.dart';
 import 'package:configuracion_loggin/providers/login_form_provider.dart';
 import 'package:configuracion_loggin/services/auth_services.dart';
+import 'package:configuracion_loggin/services/notifications_services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:configuracion_loggin/providers/btd6_provider.dart';
@@ -50,6 +51,18 @@ class MyApp extends StatelessWidget {
         'bosses': (context) =>
             const BossesInformationScreen(), // Agrega la ruta para la pantalla de bosses
       },
+      scaffoldMessengerKey: NotificationsService.messengerKey,
+      /*theme: ThemeData.dark().copyWith(
+            scaffoldBackgroundColor: Colors.grey[800],
+            appBarTheme:
+                const AppBarTheme(elevation: 0, color: Colors.redAccent),
+            floatingActionButtonTheme: const FloatingActionButtonThemeData(
+                backgroundColor: Colors.redAccent, elevation: 0))*/
+      theme: ThemeData.light().copyWith(
+          scaffoldBackgroundColor: Color.fromARGB(239, 213, 13, 13),
+          appBarTheme: const AppBarTheme(elevation: 0, color: Colors.redAccent),
+          floatingActionButtonTheme: const FloatingActionButtonThemeData(
+              backgroundColor: Colors.redAccent, elevation: 0)),
     );
   }
 }
