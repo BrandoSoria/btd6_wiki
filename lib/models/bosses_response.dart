@@ -5,7 +5,7 @@ import 'package:configuracion_loggin/models/model_boss.dart';
 class BossesResponse {
   dynamic error;
   bool success;
-  List<Body> body;
+  List<BodyBoss> body;
   Model model;
   dynamic next;
   dynamic prev;
@@ -25,7 +25,8 @@ class BossesResponse {
   factory BossesResponse.fromJson(Map<String, dynamic> json) => BossesResponse(
         error: json["error"],
         success: json["success"],
-        body: List<Body>.from(json["body"].map((x) => Body.fromJson(x))),
+        body:
+            List<BodyBoss>.from(json["body"].map((x) => BodyBoss.fromJson(x))),
         model: Model.fromJson(json["model"]),
         next: json["next"],
         prev: json["prev"],
@@ -75,8 +76,6 @@ class ScoringType {
         allowed: List<ScoringTypeElement>.from(
             json["allowed"].map((x) => scoringTypeElementValues.map[x]!)),
       );
-
-
 }
 
 class EnumValues<T> {
