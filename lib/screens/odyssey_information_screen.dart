@@ -23,6 +23,13 @@ class OdysseyInformationScreen extends StatelessWidget {
           }
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          // Navegar a la pantalla de bosses cuando se presiona el botón
+          Navigator.pushNamed(context, '/bosses');
+        },
+        child: Icon(Icons.arrow_forward),
+      ),
     );
   }
 }
