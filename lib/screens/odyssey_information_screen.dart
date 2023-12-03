@@ -57,9 +57,9 @@ class OdysseyDetails extends StatelessWidget {
                 Text('premios: ${odyssey.rewards ?? "N/A"}',
                     style: TextStyle(fontSize: 18.0)),
 
-                // Text(
-                //     'mapas: ${odyssey.maps ?? "N/A"}',
-                //     style: TextStyle(fontSize: 18.0)),
+                Text(
+                    'indicador de vidas inicial: ${odyssey.startingHealth ?? "N/A"}',
+                    style: TextStyle(fontSize: 18.0)),
 
                 Text('ID: ${odyssey.id ?? "N/A"}',
                     style: TextStyle(fontSize: 18.0)),

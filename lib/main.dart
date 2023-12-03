@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'BTD6 Information Odyssey Attributes',
-      home: const OdysseyInformationScreen(),
+      home: const OdysseyDetails(),
     );
   }
 }
