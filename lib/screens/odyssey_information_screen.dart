@@ -53,12 +53,17 @@ class OdysseyDetails extends StatelessWidget {
               children: [
                 Text('ID: ${odyssey.id ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
                 Text('Extreme Mode: ${odyssey.isExtreme ?? false}',
+                
                     style: TextStyle(fontSize: 18.0)),
                 // Otros detalles con el operador de nulabilidad (?)
                 // Ejemplo:
-                // Text('Max Monkey Seats: ${odyssey.maxMonkeySeats ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
-                // Text('Max Monkeys On Boat: ${odyssey.maxMonkeysOnBoat ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
+                 Text('Max Monkey Seats: ${odyssey.maxMonkeySeats ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
+                 Text('Max Monkeys On Boat: ${odyssey.maxMonkeysOnBoat ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
                 // ...
+            Text('AvailablePowers: ${odyssey.availablePowers ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
+             Text('AvailableTowers: ${odyssey.availableTowers ?? "N/A"}', style: TextStyle(fontSize: 18.0)),
+             
+
 
                 // Agrega más detalles según sea necesario
               ],
