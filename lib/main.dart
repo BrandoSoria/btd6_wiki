@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/home', // Puedes establecer la ruta inicial si lo deseas
       routes: {
         '/home': (context) => const OdysseyInformationScreen(),
-        '/bosses': (context) => const BossesInformationScreen(), // Agrega la ruta para la pantalla de bosses
+        '/bosses': (context) =>
+            const BossesInformationScreen(), // Agrega la ruta para la pantalla de bosses
       },
     );
   }

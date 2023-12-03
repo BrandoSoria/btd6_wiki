@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:configuracion_loggin/models/body_boss.dart';
-import 'package:configuracion_loggin/models/model_boss.dart';
+import 'package:configuracion_loggin/models/models.dart';
 
 class BossesResponse {
   dynamic error;
