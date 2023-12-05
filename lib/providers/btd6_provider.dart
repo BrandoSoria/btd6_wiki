@@ -9,7 +9,7 @@ class Btd6Provider extends ChangeNotifier {
   final String _baseUrl = 'data.ninjakiwi.com';
 
   Body? odyssey; // Almacena la odisea obtenida
-  BodyBoss? boss;
+  List<BodyBoss>? bosses; // Almacena la lista de jefes obtenida
 
   Btd6Provider();
 
@@ -31,25 +31,6 @@ class Btd6Provider extends ChangeNotifier {
     }
   }
 
-//   Future<void> getBosses() async {
-//     try {
-//       var url = Uri.http(_baseUrl, '/btd6/bosses', {});
-
-//       final response = await http.get(url);
-
-//       final Map<String, dynamic> decodeData = json.decode(response.body);
-
-//       boss =
-//           BodyBoss.fromJson(decodeData); // Convierte la respuesta a un objeto Body
-
-//       notifyListeners();
-//     } catch (error) {
-//       // Maneja el error según tus necesidades
-//       print('Error: $error');
-//     }
-//   }
-// }
-
   Future<void> getBosses() async {
     try {
       var url = Uri.http(_baseUrl, '/btd6/bosses', {});
@@ -59,8 +40,7 @@ class Btd6Provider extends ChangeNotifier {
       final BossesResponse decodedData =
           BossesResponse.fromJson(json.decode(response.body));
 
-      boss =
-          decodedData.body.first; // Supongo que solo necesitas el primer jefe
+      bosses = decodedData.body; 
 
       notifyListeners();
     } catch (error) {

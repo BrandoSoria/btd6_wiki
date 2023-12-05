@@ -32,7 +32,7 @@ class BossDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final boss = Provider.of<Btd6Provider>(context).boss;
+    final bosses = Provider.of<Btd6Provider>(context).bosses;
 
     return SingleChildScrollView(
       padding: EdgeInsets.all(16.0),
@@ -47,30 +47,32 @@ class BossDetails extends StatelessWidget {
               color: Colors.blue,
             ),
           ),
-          if (boss != null)
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('ID: ${boss.id ?? "N/A"}',
-                    style: TextStyle(fontSize: 18.0)),
-                Text('Name: ${boss.name ?? "N/A"}',
-                    style: TextStyle(fontSize: 18.0)),
-                Text('Type: ${boss.bossType ?? "N/A"}',
-                    style: TextStyle(fontSize: 18.0)),
-                // Agrega más detalles según sea necesario
+          if (bosses != null && bosses.isNotEmpty)
+            for (var boss in bosses)
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('ID: ${boss.id ?? "N/A"}',
+                      style: TextStyle(fontSize: 18.0)),
+                  Text('Name: ${boss.name ?? "N/A"}',
+                      style: TextStyle(fontSize: 18.0)),
+                  Text('Type: ${boss.bossType ?? "N/A"}',
+                      style: TextStyle(fontSize: 18.0)),
+                  // Agrega más detalles según sea necesario
 
-                // Mostrar la imagen del jefe (si está disponible)
-                if (boss.bossTypeUrl != null)
-                  Image.network(
-                    boss.bossTypeUrl,
-                    height: 150.0,
-                    width: double.infinity, // Ajustar al ancho del contenedor
-                    fit: BoxFit
-                        .fitWidth, // Ajustar al ancho sin distorsionar la proporción
-                  ),
-              ],
-            ),
-          if (boss == null) Text('No se encontraron datos del jefe.'),
+                  // Mostrar la imagen del jefe (si está disponible)
+                  if (boss.bossTypeUrl != null)
+                    Image.network(
+                      boss.bossTypeUrl,
+                      height: 150.0,
+                      width: double.infinity,
+                      fit: BoxFit.fitWidth,
+                    ),
+                  SizedBox(height: 16.0),
+                ],
+              ),
+          if (bosses == null || bosses.isEmpty)
+            Text('No se encontraron datos de los jefes.'),
         ],
       ),
     );
