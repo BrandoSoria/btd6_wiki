@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 
 class AuthService extends ChangeNotifier {
   final String _baseUrl = 'http://www.jwtingesoria.somee.com';
-  final String _apiBaseUrl = 'https://mis-jefes-btd6.onrender.com/api';
+  final String _apiBaseUrl = 'https://mis-jefes-btd6.onrender.com';
   final storage = FlutterSecureStorage();
 
   Future<String?> createUser(String email, String password) async {
@@ -68,8 +68,15 @@ class AuthService extends ChangeNotifier {
 
   Future<List<Map<String, dynamic>>> getFavoriteBosses() async {
     final token = await readToken();
+    print('Token: $token');
+
+    if (token == null || token.isEmpty) {
+      print('Token vacío o nulo');
+      return [];
+    }
+
     final response = await http.get(
-      Uri.parse('$_apiBaseUrl/favoritos'),
+      Uri.parse('$_apiBaseUrl/api/favoritos'),
       headers: {'Authorization': 'Bearer $token'},
     );
 
@@ -84,6 +91,13 @@ class AuthService extends ChangeNotifier {
 
   Future<void> addFavoriteBoss(String nombreJefe, String imagen) async {
     final token = await readToken();
+    print('Token: $token');
+
+    if (token == null || token.isEmpty) {
+      print('Token vacío o nulo');
+      return;
+    }
+
     final headers = {
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
@@ -101,6 +115,9 @@ class AuthService extends ChangeNotifier {
         body: body,
       );
 
+      print('Response status code: ${response.statusCode}');
+      print('Response body: ${response.body}');
+
       if (response.statusCode == 201) {
         print('Jefe favorito agregado correctamente');
       } else {
@@ -108,12 +125,20 @@ class AuthService extends ChangeNotifier {
             'Error al agregar jefe favorito: ${response.reasonPhrase}');
       }
     } catch (error) {
+      print('Error al agregar jefe favorito: $error');
       throw Exception('Error al agregar jefe favorito: $error');
     }
   }
 
   Future<void> removeFavoriteBoss(String idJefe) async {
     final token = await readToken();
+    print('Token: $token');
+
+    if (token == null || token.isEmpty) {
+      print('Token vacío o nulo');
+      return;
+    }
+
     final headers = {'Authorization': 'Bearer $token'};
 
     try {
@@ -129,6 +154,7 @@ class AuthService extends ChangeNotifier {
             'Error al quitar jefe favorito: ${response.reasonPhrase}');
       }
     } catch (error) {
+      print('Error al quitar jefe favorito: $error');
       throw Exception('Error al quitar jefe favorito: $error');
     }
   }
