@@ -10,8 +10,24 @@ class Btd6Provider extends ChangeNotifier {
 
   Body? odyssey; // Almacena la odisea obtenida
   List<BodyBoss>? bosses; // Almacena la lista de jefes obtenida
+ List<BodyBoss>? favoriteBosses;
 
-  Btd6Provider();
+  Btd6Provider() : favoriteBosses = [];
+
+
+  
+  // Método para agregar un jefe a la lista de favoritos
+  void addToFavorites(BodyBoss boss) {
+    favoriteBosses?.add(boss);
+    notifyListeners();
+  }
+
+  // Método para quitar un jefe de la lista de favoritos
+  void removeFromFavorites(BodyBoss boss) {
+    favoriteBosses?.remove(boss);
+    notifyListeners();
+  }
+
 
   Future<void> getPowers() async {
     try {
