@@ -9,7 +9,15 @@ class BossesInformationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bosses Information'),
+        title: const Text(
+          'Bosses Information',
+          style: TextStyle(
+            fontFamily: 'Rubik Microbe',
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 252, 252, 252),
+          ),
+        ),
         actions: [
           IconButton(
             icon: const Icon(Icons.favorite, color: Colors.white),
@@ -52,12 +60,13 @@ class BossDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            'Boss Details',
+          const Text(
+            'Bosses Information',
             style: TextStyle(
+              fontFamily: 'Rubik Microbe',
               fontSize: 24.0,
               fontWeight: FontWeight.bold,
-              color: Colors.blue,
+              color: Color.fromARGB(255, 28, 198, 204),
             ),
           ),
           if (bosses != null && bosses.isNotEmpty)
@@ -76,14 +85,14 @@ class BossDetails extends StatelessWidget {
                   // Mostrar la imagen del jefe (si está disponible)
                   if (boss.bossTypeUrl != null)
                     Container(
-                      height: 150.0,
+                      height: 100.0,
                       width: double.infinity,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12.0),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.grey.withOpacity(0.5),
-                            spreadRadius: 3,
+                            spreadRadius: 8,
                             blurRadius: 7,
                             offset: Offset(0, 3),
                           ),

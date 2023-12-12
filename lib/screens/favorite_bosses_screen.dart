@@ -10,10 +10,17 @@ class FavoriteBossesScreen extends StatelessWidget {
     final favoriteBosses = Provider.of<Btd6Provider>(context).favoriteBosses;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Favorite Bosses'),
-        backgroundColor:
-            Colors.redAccent, // Color de fondo de la barra de aplicaciones
+     appBar: AppBar(
+        title: const Text(
+          'Favorite Bosses',
+          style: TextStyle(
+            fontFamily: 'Rubik Microbe',
+            fontSize: 24.0,
+            fontWeight: FontWeight.bold,
+            color: Color.fromARGB(255, 252, 252, 252),
+           
+          ),
+        ),
       ),
       body: ListView.builder(
         itemCount: favoriteBosses?.length ?? 0,
@@ -26,6 +33,7 @@ class FavoriteBossesScreen extends StatelessWidget {
               title: Text(
                 boss.name ?? 'N/A',
                 style: TextStyle(
+                  fontFamily: 'Rubik Microbe',
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   color: Colors.blue,

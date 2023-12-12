@@ -83,7 +83,7 @@ flutter:
   fonts:
     - family: Rubik Microbe
       fonts:
-        - asset: fonts/RubikMicrobe-Regular
+        - asset: fonts/RubikMicrobe-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
