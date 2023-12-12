@@ -7,28 +7,41 @@ class FavoriteBossesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final favoriteBosses =
-        Provider.of<Btd6Provider>(context).favoriteBosses;
+    final favoriteBosses = Provider.of<Btd6Provider>(context).favoriteBosses;
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Favorite Bosses'),
+        backgroundColor:
+            Colors.redAccent, // Color de fondo de la barra de aplicaciones
       ),
       body: ListView.builder(
         itemCount: favoriteBosses?.length ?? 0,
         itemBuilder: (context, index) {
           final boss = favoriteBosses![index];
-          return ListTile(
-            title: Text(boss.name ?? 'N/A'),
-            leading: boss.bossTypeUrl != null
-                ? CircleAvatar(
-                    backgroundImage: NetworkImage(boss.bossTypeUrl!),
-                  )
-                : const Icon(Icons.image_not_supported),
-            // Agrega más detalles según sea necesario
+          return Card(
+            elevation: 4.0,
+            margin: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+            child: ListTile(
+              title: Text(
+                boss.name ?? 'N/A',
+                style: TextStyle(
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),
+              ),
+              leading: boss.bossTypeUrl != null
+                  ? CircleAvatar(
+                      backgroundImage: NetworkImage(boss.bossTypeUrl!),
+                    )
+                  : const Icon(Icons.image_not_supported),
+              // Agrega más detalles según sea necesario
+            ),
           );
         },
       ),
+      backgroundColor: Colors.blue[100], // Color de fondo de la pantalla
     );
   }
 }

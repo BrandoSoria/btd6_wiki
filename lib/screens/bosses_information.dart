@@ -12,7 +12,7 @@ class BossesInformationScreen extends StatelessWidget {
         title: const Text('Bosses Information'),
         actions: [
           IconButton(
-            icon: const Icon(Icons.favorite),
+            icon: const Icon(Icons.favorite, color: Colors.white),
             onPressed: () {
               Navigator.pushNamed(context, 'favoritebosses');
             },
@@ -25,12 +25,15 @@ class BossesInformationScreen extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
+            return Center(
+                child: Text('Error: ${snapshot.error}',
+                    style: TextStyle(color: Colors.red)));
           } else {
             return BossDetails();
           }
         },
       ),
+      backgroundColor: Colors.blue[100],
     );
   }
 }
@@ -72,35 +75,67 @@ class BossDetails extends StatelessWidget {
 
                   // Mostrar la imagen del jefe (si está disponible)
                   if (boss.bossTypeUrl != null)
-                    Image.network(
-                      boss.bossTypeUrl,
+                    Container(
                       height: 150.0,
                       width: double.infinity,
-                      fit: BoxFit.fitWidth,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 3,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(12.0),
+                        child: Image.network(
+                          boss.bossTypeUrl,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
                     ),
                   SizedBox(height: 16.0),
 
                   // Botón de corazón para agregar/quitar de favoritos
-                  IconButton(
-                    icon: Icon(
-                      favoriteBosses?.contains(boss) == true
-                          ? Icons.favorite
-                          : Icons.favorite_border,
-                      color: Colors.red,
-                    ),
-                    onPressed: () {
+                  GestureDetector(
+                    onTap: () {
                       if (favoriteBosses?.contains(boss) == true) {
                         btd6Provider.removeFromFavorites(boss);
                       } else {
                         btd6Provider.addToFavorites(boss);
                       }
                     },
+                    child: Container(
+                      padding: EdgeInsets.all(12.0),
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.red,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 3,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Icon(
+                        favoriteBosses?.contains(boss) == true
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: Colors.white,
+                      ),
+                    ),
                   ),
                   SizedBox(height: 16.0),
                 ],
               ),
           if (bosses == null || bosses.isEmpty)
-            Text('No se encontraron datos de los jefes.'),
+            Text('No se encontraron datos de los jefes.',
+                style: TextStyle(color: Colors.black54)),
         ],
       ),
     );
