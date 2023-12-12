@@ -16,6 +16,7 @@ class BodyBoss {
   String leaderboardElitePlayers1;
   String metadataStandard;
   String metadataElite;
+  bool isFavorite;
 
   BodyBoss({
     required this.id,
@@ -31,6 +32,7 @@ class BodyBoss {
     required this.leaderboardElitePlayers1,
     required this.metadataStandard,
     required this.metadataElite,
+    required this.isFavorite,
   });
 
   factory BodyBoss.fromRawJson(String str) =>
@@ -50,6 +52,8 @@ class BodyBoss {
         leaderboardElitePlayers1: json["leaderboard_elite_players_1"],
         metadataStandard: json["metadataStandard"],
         metadataElite: json["metadataElite"],
+        isFavorite: json["isFavorite"] ??
+            false, // Valor predeterminado a false si no se proporciona
       );
 }
 
