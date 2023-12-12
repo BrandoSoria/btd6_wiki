@@ -1,5 +1,6 @@
 import 'package:configuracion_loggin/Pages/pages.dart';
 import 'package:configuracion_loggin/providers/login_form_provider.dart';
+import 'package:configuracion_loggin/screens/favorite_bosses_screen.dart';
 import 'package:configuracion_loggin/services/auth_services.dart';
 import 'package:configuracion_loggin/services/notifications_services.dart';
 import 'package:flutter/material.dart';
@@ -48,8 +49,8 @@ class MyApp extends StatelessWidget {
         'login': (context) => LoginScreen(),
         'register': (context) => SignUpScreen(),
         'home': (context) => const OdysseyInformationScreen(),
-        'bosses': (context) =>
-            const BossesInformationScreen(), // Agrega la ruta para la pantalla de bosses
+        'bosses': (context) => const BossesInformationScreen(),
+        'favoritebosses': (context) => const FavoriteBossesScreen(),
       },
       scaffoldMessengerKey: NotificationsService.messengerKey,
       /*theme: ThemeData.dark().copyWith(

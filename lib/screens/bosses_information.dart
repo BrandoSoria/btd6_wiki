@@ -10,6 +10,14 @@ class BossesInformationScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Bosses Information'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.favorite),
+            onPressed: () {
+              Navigator.pushNamed(context, 'favoritebosses');
+            },
+          ),
+        ],
       ),
       body: FutureBuilder(
         future: Provider.of<Btd6Provider>(context, listen: false).getBosses(),
@@ -32,7 +40,9 @@ class BossDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bosses = Provider.of<Btd6Provider>(context).bosses;
+    final btd6Provider = Provider.of<Btd6Provider>(context);
+    final bosses = btd6Provider.bosses;
+    final favoriteBosses = btd6Provider.favoriteBosses;
 
     return SingleChildScrollView(
       padding: EdgeInsets.all(16.0),
@@ -68,6 +78,24 @@ class BossDetails extends StatelessWidget {
                       width: double.infinity,
                       fit: BoxFit.fitWidth,
                     ),
+                  SizedBox(height: 16.0),
+
+                  // Botón de corazón para agregar/quitar de favoritos
+                  IconButton(
+                    icon: Icon(
+                      favoriteBosses?.contains(boss) == true
+                          ? Icons.favorite
+                          : Icons.favorite_border,
+                      color: Colors.red,
+                    ),
+                    onPressed: () {
+                      if (favoriteBosses?.contains(boss) == true) {
+                        btd6Provider.removeFromFavorites(boss);
+                      } else {
+                        btd6Provider.addToFavorites(boss);
+                      }
+                    },
+                  ),
                   SizedBox(height: 16.0),
                 ],
               ),
