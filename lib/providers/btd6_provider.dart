@@ -1,9 +1,8 @@
 import 'dart:convert';
 import 'package:configuracion_loggin/models/body_boss.dart';
-import 'package:configuracion_loggin/models/bosses_response.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:configuracion_loggin/models/body.dart';
+import 'package:configuracion_loggin/models/models.dart';
 
 class Btd6Provider extends ChangeNotifier {
   final String _baseUrl = 'data.ninjakiwi.com';

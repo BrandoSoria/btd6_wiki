@@ -1,13 +1,9 @@
 import 'package:configuracion_loggin/Pages/pages.dart';
-import 'package:configuracion_loggin/providers/login_form_provider.dart';
-import 'package:configuracion_loggin/screens/favorite_bosses_screen.dart';
-import 'package:configuracion_loggin/services/auth_services.dart';
-import 'package:configuracion_loggin/services/notifications_services.dart';
+import 'package:configuracion_loggin/providers/providers.dart';
+import 'package:configuracion_loggin/services/services.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:configuracion_loggin/providers/btd6_provider.dart';
-import 'package:configuracion_loggin/screens/odyssey_information_screen.dart';
-import 'package:configuracion_loggin/screens/bosses_information.dart';
+import 'package:configuracion_loggin/screens/screens.dart';
 
 void main() => runApp(const AppState());
 
